@@ -8,14 +8,14 @@ logging.basicConfig(
 
 list_of_files = [
     "src/backend/__init__.py",
+    "src/backend/Dockerfile",
     "src/backend/src/__init__.py",
     "src/backend/src/api/__init__.py",
-    "src/backend/src/api/routers/__init__.py",
+    "src/backend/src/api/routes/__init__.py",
     "src/backend/src/utils/__init__.py",
     "src/backend/src/utils/utils.py",
     "src/backend/src/utils/logger.py",
     "src/backend/src/utils/exception.py",
-    "src/backend/src/constant/__init__.py",
     "src/backend/src/components/__init__.py",
     "src/backend/src/components/data_ingestion.py",
     "src/backend/src/components/data_validation.py",

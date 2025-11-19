@@ -1,0 +1,20 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Flask backend of waste management system"
+authors = [
+    {name = "M-Hamza380", email = "hamza.anjum380@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=3.1.2",
+    "requests>=2.32.5",
+]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
