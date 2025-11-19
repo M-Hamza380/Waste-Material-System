@@ -6,31 +6,33 @@ logging.basicConfig(
     level=logging.INFO
 )
 
+PROJECT_NAME = "waste-management-system"
+
 list_of_files = [
     "src/backend/__init__.py",
     "src/backend/Dockerfile",
     "src/backend/src/__init__.py",
     "src/backend/src/api/__init__.py",
     "src/backend/src/api/routes/__init__.py",
-    "src/backend/src/utils/__init__.py",
-    "src/backend/src/utils/utils.py",
-    "src/backend/src/utils/logger.py",
-    "src/backend/src/utils/exception.py",
-    "src/backend/src/components/__init__.py",
-    "src/backend/src/components/data_ingestion.py",
-    "src/backend/src/components/data_validation.py",
-    "src/backend/src/components/model_trainer.py",
-    "src/backend/src/components/model_evaluation.py",
-    "src/backend/src/components/model_conversion.py",
-    "src/backend/src/components/model_pusher.py",
-    "src/backend/src/entity/__init__.py",
-    "src/backend/src/entity/config_entity.py",
-    "src/backend/src/entity/artifact_entity.py",
-    "src/backend/src/constants/__init__.py",
-    "src/backend/src/constants/training_pipeline/__init__.py",
-    "src/backend/src/pipeline/__init__.py",
-    "src/backend/src/pipeline/prediction_pipeline.py",
-    "src/backend/src/pipeline/train_pipeline.py",
+    f"src/backend/src/{PROJECT_NAME}/utils/__init__.py",
+    f"src/backend/src/{PROJECT_NAME}/utils/utils.py",
+    f"src/backend/src/{PROJECT_NAME}/utils/logger.py",
+    f"src/backend/src/{PROJECT_NAME}/utils/exception.py",
+    f"src/backend/src/{PROJECT_NAME}/components/__init__.py",
+    f"src/backend/src/{PROJECT_NAME}/components/data_ingestion.py",
+    f"src/backend/src/{PROJECT_NAME}/components/data_validation.py",
+    f"src/backend/src/{PROJECT_NAME}/components/model_trainer.py",
+    f"src/backend/src/{PROJECT_NAME}/components/model_evaluation.py",
+    f"src/backend/src/{PROJECT_NAME}/components/model_conversion.py",
+    f"src/backend/src/{PROJECT_NAME}/components/model_pusher.py",
+    f"src/backend/src/{PROJECT_NAME}/entity/__init__.py",
+    f"src/backend/src/{PROJECT_NAME}/entity/config_entity.py",
+    f"src/backend/src/{PROJECT_NAME}/entity/artifact_entity.py",
+    f"src/backend/src/{PROJECT_NAME}/constants/__init__.py",
+    f"src/backend/src/{PROJECT_NAME}/constants/training_pipeline/__init__.py",
+    f"src/backend/src/{PROJECT_NAME}/pipeline/__init__.py",
+    f"src/backend/src/{PROJECT_NAME}/pipeline/prediction_pipeline.py",
+    f"src/backend/src/{PROJECT_NAME}/pipeline/train_pipeline.py",
 ]
 
 for file in list_of_files:
