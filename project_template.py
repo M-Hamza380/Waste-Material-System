@@ -9,8 +9,8 @@ logging.basicConfig(
 PROJECT_NAME = "waste-management-system"
 
 list_of_files = [
-    "src/backend/__init__.py",
-    "src/backend/Dockerfile",
+    "src/backend/data/idx.html",
+    "src/backend/research/trials.ipynb",
     "src/backend/src/__init__.py",
     "src/backend/src/api/__init__.py",
     "src/backend/src/api/routes/__init__.py",
@@ -33,22 +33,26 @@ list_of_files = [
     f"src/backend/src/{PROJECT_NAME}/pipeline/__init__.py",
     f"src/backend/src/{PROJECT_NAME}/pipeline/prediction_pipeline.py",
     f"src/backend/src/{PROJECT_NAME}/pipeline/train_pipeline.py",
+    "src/backend/Dockerfile",
 ]
 
 for file in list_of_files:
-    filepath = Path(file)
-    filedir, filename = os.path.split(filepath)
+    if file:
+        filepath = Path(file)
+        filedir, filename = os.path.split(filepath)
 
-    if filedir != "":
-        os.makedirs(filedir, exist_ok=True)
-        logging.info(f"Creating directory; {filedir} for the file {filename}")
+        if filedir != "":
+            os.makedirs(filedir, exist_ok=True)
+            logging.info(f"Creating directory; {filedir} for the file {filename}")
 
-    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
-        with open(filepath, "w") as f:
-            pass
-            logging.info(f"Creating empty file: {filepath}")
+        if (not os.path.exists(filename)) or (os.path.getsize(filename) == 0):
+            with open(filepath, "w") as f:
+                pass
+                logging.info(f"Creating empty file: {filename}")
+        else:
+            logging.info(f"{filename} is already exists")
     else:
-        logging.info(f"{filename} is already exists")
+        logging.info(f"File {file} is empty!")
 
 
 
