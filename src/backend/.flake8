@@ -1,0 +1,23 @@
+# flake8 configuration file
+[flake8]
+
+max-line-length = 125
+extend-ignore = E203, E266, W503, E501, E402
+max-complexity = 18
+select = B,C,E,F,W,T4,B9
+
+exclude =
+    .git,
+    __pycache__,
+    docs,
+    migrations,
+    dist,
+    .coverage
+    .pytest_cache
+    .venv
+    .env
+    .dockerignore
+
+per-file-ignores =
+    # imported but unused
+    __init__.py: F401

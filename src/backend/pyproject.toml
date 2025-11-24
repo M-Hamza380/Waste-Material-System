@@ -8,13 +8,38 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "black>=25.11.0",
+    "flake8>=7.3.0",
     "flask>=3.1.2",
     "flask-cors>=6.0.1",
     "gdown>=5.2.0",
     "ipykernel>=7.1.0",
+    "isort>=7.0.0",
+    "pre-commit>=4.5.0",
     "requests>=2.32.5",
     "ultralytics>=8.3.230",
 ]
+
+# Optional dependencies for testing, linting, etc.
+[Optional.dependencies]
+linting = ['flake8', 'black', 'isort']
+
+# Tool-specific for black configuration
+[tool.black]
+line-length = 125
+target-version = ['py310']
+
+# Tool-specific for isort configurations
+[tool.isort]
+profile = "black"
+py_version = 310
+skip = [".gitignore", ".dockerignore", "requirements.txt", "pyproject.toml", ".myenv"]
+
+# Tool-specific for flake8 configurations
+[tool.flake8]
+max-line-length = 125
+py_version = 310
+extend-ignore = ["E203", "E266", "W503", "E501"]
 
 [tool.uv]
 package = true

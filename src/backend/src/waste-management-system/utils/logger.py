@@ -108,4 +108,3 @@ class ColorFormatter(logging.Formatter):
 # Setup console handler with custom formatter
 console_handler.setFormatter(ColorFormatter(logs_format))
 logger.addHandler(console_handler)
-

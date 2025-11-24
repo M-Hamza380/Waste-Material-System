@@ -1,0 +1,25 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: 7.0.0
+    hooks:
+      - id: isort
+        name: isort (Python imports sorter)
+        language_version: python3.10
+        require_serial: true
+        args: ["--profile", "black", "--filter-files", "--apply"]
+  
+  - repo: https://github.com/psf/black
+    rev: 25.11.0
+    hooks:
+      - id: black
+        name: black (Python Code formatter)
+        language_version: python3.10
+  
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+        name: flake8 (Python Linter)
+        language_version: python3.10
+        args: [".flake8"]
+      
