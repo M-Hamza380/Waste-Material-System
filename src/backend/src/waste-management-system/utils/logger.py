@@ -1,16 +1,21 @@
-import os, sys, logging
-from pathlib import Path
+import logging
+import os
+import sys
 from datetime import datetime
+from pathlib import Path
+
 from colorama import Fore, Style, init
 
 # Colorama initialization for windows
 init(autoreset=True)
+
 
 def create_dirs(dir_path) -> Path:
     dir_path = Path(dir_path)
     if not dir_path.exists():
         dir_path.mkdir(parents=True)
     return dir_path
+
 
 # Log directory
 BASE_DIR = Path(__file__).parent.parent.parent.parent
@@ -26,11 +31,13 @@ CURRENT_DAY = datetime.now().strftime("%A")
 DAY_DIR = os.path.join(DATE_DIR, CURRENT_DAY)
 create_dirs(DAY_DIR)
 
+
 def timestamp_dirs(base_time):
     timestamp = base_time.strftime("%d-%m-%Y_%H-%M")
     TIMESTAMP_DIR = os.path.join(DAY_DIR, timestamp)
     create_dirs(TIMESTAMP_DIR)
     return TIMESTAMP_DIR
+
 
 # Current timestamp directory
 base_time = datetime.now()
@@ -42,7 +49,7 @@ log_files_path = {
     "INFO": os.path.join(TIMESTAMP_DIR, "info.log"),
     "WARNING": os.path.join(TIMESTAMP_DIR, "warning.log"),
     "ERROR": os.path.join(TIMESTAMP_DIR, "error.log"),
-    "CRITICAL": os.path.join(TIMESTAMP_DIR, "critical.log")
+    "CRITICAL": os.path.join(TIMESTAMP_DIR, "critical.log"),
 }
 
 # Logs format
@@ -52,6 +59,7 @@ logs_format = "[ [%(asctime)s] : %(levelname)s : %(name)s : %(module)s : %(linen
 logger = logging.getLogger("WasteManagementSystem")
 logger.setLevel(logging.DEBUG)
 logger.propagate = False
+
 
 class LevelFilter(logging.Filter):
 
@@ -64,6 +72,7 @@ class LevelFilter(logging.Filter):
     def filter(self, record):
         return record.levelno == self._level
 
+
 def create_filehandler(level, log_file_path):
     # Ensure we use numeric logging level (accepts name or int)
     numeric_level = getattr(logging, level) if isinstance(level, str) else level
@@ -75,11 +84,13 @@ def create_filehandler(level, log_file_path):
     handler.setFormatter(formatter)
     return handler
 
+
 # Create file handlers
 for level, log_file_path in log_files_path.items():
     handler = create_filehandler(level, log_file_path)
     logger.addHandler(handler)
-    
+
+
 def get_color_level(level):
     if level == "DEBUG":
         return Fore.BLUE
@@ -94,16 +105,19 @@ def get_color_level(level):
     else:
         return Fore.WHITE
 
+
 # Console handler for colored logs
 console_handler = logging.StreamHandler(sys.stdout)
 
+
 class ColorFormatter(logging.Formatter):
-    
+
     def format(self, record):
         level = record.levelname
         color_level = get_color_level(level)
         log_message = super().format(record)
         return f"{color_level}{log_message}{Style.RESET_ALL}"
+
 
 # Setup console handler with custom formatter
 console_handler.setFormatter(ColorFormatter(logs_format))

@@ -37,32 +37,40 @@ wheels = [
 [[package]]
 name = "backend"
 version = "0.1.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
-    { name = "black" },
-    { name = "flake8" },
     { name = "flask" },
     { name = "flask-cors" },
     { name = "gdown" },
-    { name = "ipykernel" },
-    { name = "isort" },
-    { name = "pre-commit" },
     { name = "requests" },
     { name = "ultralytics" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "black" },
+    { name = "flake8" },
+    { name = "ipykernel" },
+    { name = "isort" },
+    { name = "pre-commit" },
+]
+
 [package.metadata]
 requires-dist = [
-    { name = "black", specifier = ">=25.11.0" },
-    { name = "flake8", specifier = ">=7.3.0" },
     { name = "flask", specifier = ">=3.1.2" },
     { name = "flask-cors", specifier = ">=6.0.1" },
     { name = "gdown", specifier = ">=5.2.0" },
+    { name = "requests", specifier = ">=2.32.5" },
+    { name = "ultralytics", specifier = ">=8.3.230" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "black", specifier = ">=25.11.0" },
+    { name = "flake8", specifier = ">=7.3.0" },
     { name = "ipykernel", specifier = ">=7.1.0" },
     { name = "isort", specifier = ">=7.0.0" },
     { name = "pre-commit", specifier = ">=4.5.0" },
-    { name = "requests", specifier = ">=2.32.5" },
-    { name = "ultralytics", specifier = ">=8.3.230" },
 ]
 
 [[package]]

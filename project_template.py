@@ -1,9 +1,10 @@
-import os, logging
+import logging
+import os
 from pathlib import Path
 
 logging.basicConfig(
     format="[ [%(asctime)s] : %(levelname)s : %(name)s : %(module)s: %(lineno)d : %(message)s] ]",
-    level=logging.INFO
+    level=logging.INFO,
 )
 
 PROJECT_NAME = "waste-management-system"
@@ -53,6 +54,3 @@ for file in list_of_files:
             logging.info(f"Creating empty file: {filename}")
     else:
         logging.info(f"{filename} is already exists")
-
-
-
