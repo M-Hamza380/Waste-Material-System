@@ -10,11 +10,6 @@ logging.basicConfig(
 PROJECT_NAME = "waste-management-system"
 
 list_of_files = [
-    "src/backend/.flake8",
-    "src/backend/.pre-commit-config.yaml",
-    "src/backend/Makefile",
-    "src/backend/data/.gitkeep",
-    "src/backend/research/trials.ipynb",
     "src/backend/src/__init__.py",
     "src/backend/src/api/__init__.py",
     "src/backend/src/api/routes/__init__.py",
@@ -38,6 +33,12 @@ list_of_files = [
     f"src/backend/src/{PROJECT_NAME}/pipeline/prediction_pipeline.py",
     f"src/backend/src/{PROJECT_NAME}/pipeline/train_pipeline.py",
     "src/backend/Dockerfile",
+    "src/backend/.dockerignore",
+    "src/backend/.flake8",
+    "src/backend/.pre-commit-config.yaml",
+    "src/backend/Makefile",
+    "src/backend/datasets/.gitkeep",
+    "src/backend/research/trials.ipynb",
 ]
 
 for file in list_of_files:
