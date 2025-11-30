@@ -25,8 +25,13 @@ dev = [
 
 ]
 
+# Data Analysis dependencies
+data-analysis = [
+    "seaborn>=0.13.2",
+]
+
 # Optional dependencies for testing, linting, etc.
-[Optional.dependencies]
+[project.optional-dependencies]
 linting = ['flake8', 'black', 'isort']
 
 # Tool-specific for black configuration
@@ -38,7 +43,7 @@ target-version = ['py310']
 [tool.isort]
 profile = "black"
 py_version = 310
-skip = [".gitignore", ".dockerignore", "requirements.txt", "pyproject.toml", ".myenv"]
+skip = [".gitignore", ".dockerignore", "requirements.txt", "pyproject.toml", ".venv", ".env"]
 
 # Tool-specific for flake8 configurations
 [tool.flake8]
@@ -52,3 +57,4 @@ package = false
 [build-system]
 requires = ["uv_build>=0.9.12"]
 build-backend = "uv_build"
+
