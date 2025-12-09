@@ -32,6 +32,10 @@ pre-commit-uninstall:
 pre-commit-install:
 	pre-commit install
 
+# Run application
+run:
+	uv run python main.py
+
 # Clean .pyc and cache files in all directories
 clean:
 	@echo Cleaning up Python cache files....
