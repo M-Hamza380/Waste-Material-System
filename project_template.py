@@ -7,12 +7,13 @@ logging.basicConfig(
     level=logging.INFO,
 )
 
-PROJECT_NAME = "waste-management-system"
+PROJECT_NAME = "waste_management_system"
 
 list_of_files = [
     "src/backend/src/__init__.py",
     "src/backend/src/api/__init__.py",
     "src/backend/src/api/routes/__init__.py",
+    "src/backend/src/api/routes/waste_management_system_route.py",
     f"src/backend/src/{PROJECT_NAME}/utils/__init__.py",
     f"src/backend/src/{PROJECT_NAME}/utils/utils.py",
     f"src/backend/src/{PROJECT_NAME}/utils/logger.py",
