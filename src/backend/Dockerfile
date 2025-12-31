@@ -12,8 +12,6 @@ ENV UV_COMPILE_BYTECODES=1 UV_LINK_MODE=copy
 
 # Install dependencies
 RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=uv.look,target=/app/uv.look \
-    --mount=type=bind,source=pyproject.toml,target=/app/pyproject.toml \
     uv sync --frozen --no-dev
 
 # Copy the source code
@@ -38,13 +36,10 @@ WORKDIR /app
 
 # Copy the virtual environment from the base image
 COPY --from=base /app /app
-COPY --from=base /root/.local /root/.local
+# COPY --from=base /root/.local /root/.local
 
 # Add the virtual environment to the PATH
 ENV PATH=/app/.venv/bin:$PATH
-
-# Expose the port
-EXPOSE 2020
 
 # Run the application
 CMD ["python", "main.py"]
