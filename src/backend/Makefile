@@ -1,8 +1,12 @@
-.PHONY: setup run sort format lint pre-commit pre-commit-clean pre-commit-uninstall pre-commit-install clean
+.PHONY: setup upgrade run sort format lint pre-commit pre-commit-clean pre-commit-uninstall pre-commit-install clean
 
 # Setup development environment
 setup:
 	uv sync
+
+# Upgrade uv.lock file
+upgrade:
+	uv lock --upgrade
 
 # Sort imports using isort
 sort:
