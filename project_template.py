@@ -39,7 +39,7 @@ list_of_files = [
     "src/backend/.pre-commit-config.yaml",
     "src/backend/Makefile",
     "src/backend/datasets/.gitkeep",
-    "src/backend/research/trials.ipynb",
+    "src/backend/notebooks/explore_data.ipynb",
 ]
 
 for file in list_of_files:
