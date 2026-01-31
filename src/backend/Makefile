@@ -1,4 +1,4 @@
-.PHONY: setup upgrade run sort format lint pre-commit pre-commit-clean pre-commit-uninstall pre-commit-install clean
+.PHONY: setup upgrade run sort format lint pre-commit pre-commit-clean pre-commit-uninstall pre-commit-install clean update
 
 # Setup development environment
 setup:
@@ -35,6 +35,10 @@ pre-commit-uninstall:
 # Install pre-commit hooks
 pre-commit-install:
 	pre-commit install
+
+# Update pre-commit hooks
+update:
+	pre-commit autoupdate
 
 # Run application
 run:
