@@ -3,7 +3,8 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class DataIngestionArtifact:
-    pass
+    data_zip_file_path: str
+    feature_store_file_path: str
 
 
 @dataclass(frozen=True)
