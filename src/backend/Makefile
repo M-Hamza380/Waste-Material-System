@@ -1,4 +1,4 @@
-.PHONY: setup upgrade run sort format lint pre-commit pre-commit-clean pre-commit-uninstall pre-commit-install clean update
+.PHONY: setup upgrade run sort format lint pre-commit pre-commit-clean pre-commit-uninstall pre-commit-install clean update test
 
 # Setup development environment
 setup:
@@ -10,15 +10,15 @@ upgrade:
 
 # Sort imports using isort
 sort:
-	isort src --verbose
+	isort src tests --verbose
 
 # Format code using black
 format:
-	black src --verbose
+	black src tests --verbose
 
 # Lint code using flake8
 lint:
-	flake8 src --verbose
+	flake8 src tests --verbose
 
 # Run pre-commit hooks
 pre-commit:
@@ -40,6 +40,10 @@ pre-commit-install:
 update:
 	pre-commit autoupdate
 
+# Run tests
+test:
+	uv run pytest
+
 # Run application
 run:
 	uv run python main.py
@@ -49,5 +53,5 @@ clean:
 	@echo Cleaning up Python cache files....
 	@for /r "." %%d in (*__pycache__) do @if exist "%%d" rmdir /s /q "%%d"
 	@for /r "." %%f in (*.pyc) do @if exist "%%f" del /q "%%f"
-	@for /r "." %%f in (*.pyo, *.pyd, .pytest_cache .coverage htmlcov .tox) do @if exist "%%f" rmdir /s /q "%%f"
+	@for /r "." %%f in (*.pyo *.pyd .pytest_cache .coverage htmlcov .tox) do @if exist "%%f" rmdir /s /q "%%f"
 	@echo Cleanup complete!

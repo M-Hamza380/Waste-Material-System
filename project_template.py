@@ -40,6 +40,10 @@ list_of_files = [
     "src/backend/Makefile",
     "src/backend/datasets/.gitkeep",
     "src/backend/notebooks/explore_data.ipynb",
+    "src/backend/tests/__init__.py",
+    "src/backend/tests/unit/__init__.py",
+    "src/backend/tests/unit/test_waste_management_system/__init__.py",
+    "src/backend/tests/unit/test_api/__init__.py",
 ]
 
 for file in list_of_files:
