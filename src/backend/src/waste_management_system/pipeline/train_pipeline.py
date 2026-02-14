@@ -1,11 +1,16 @@
 import sys
 from abc import ABC, abstractmethod
 
+from typer import Typer
+
 from ..components.data_ingestion import DataIngestion
 from ..entity.artifact_entity import DataIngestionArtifact
 from ..entity.config_entity import DataIngestionConfig
 from ..utils.exception import CustomException
 from ..utils.logger import logger
+
+# Initialize Typer CLI train_pipeline_app
+train_pipeline_app = Typer()
 
 
 class BaseTrainPipeline(ABC):
@@ -40,3 +45,7 @@ class TrainPipeline(BaseTrainPipeline):
             logger.info("Train pipeline completed successfully :)")
         except Exception as e:
             raise CustomException(e, sys)
+
+
+if __name__ == "__main__":
+    train_pipeline_app()
