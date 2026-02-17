@@ -1,7 +1,7 @@
 import os
 from dataclasses import dataclass
 
-from ..constants.artifact_constants import (
+from waste_management_system.constants.artifact_constants import (
     ARTIFACTS_DIR,
     DATA_DOWNLOAD_URL,
     DATA_INGESTION_DIR,
