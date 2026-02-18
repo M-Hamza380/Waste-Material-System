@@ -3,12 +3,12 @@ import sys
 from abc import ABC, abstractmethod
 from zipfile import ZipFile
 
-import gdown
+import gdown  # type: ignore
 
-from ..entity.artifact_entity import DataIngestionArtifact
-from ..entity.config_entity import DataIngestionConfig
-from ..utils.exception import CustomException
-from ..utils.logger import logger
+from waste_management_system.entity.artifact_entity import DataIngestionArtifact
+from waste_management_system.entity.config_entity import DataIngestionConfig
+from waste_management_system.utils.exception import CustomException
+from waste_management_system.utils.logger import logger
 
 
 class BaseDataIngestion(ABC):
@@ -59,6 +59,7 @@ class DataIngestion(BaseDataIngestion):
             logger.info("Download completed successfully :)")
             return zip_downlaod_path
         except Exception as e:
+            logger.error(e)
             raise CustomException(e, sys)
 
     def extract_zip_file(self, zip_downlaod_path: str) -> str:
@@ -74,6 +75,7 @@ class DataIngestion(BaseDataIngestion):
             logger.info("Extraction completed successfully :)")
             return feature_store_dir
         except Exception as e:
+            logger.error(e)
             raise CustomException(e, sys)
 
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
@@ -88,4 +90,5 @@ class DataIngestion(BaseDataIngestion):
             logger.info("Data ingestion completed successfully :)")
             return data_ingestion_artifact
         except Exception as e:
+            logger.error(e)
             raise CustomException(e, sys)

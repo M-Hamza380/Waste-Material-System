@@ -31,6 +31,7 @@ class TrainPipeline(BaseTrainPipeline):
             logger.info("Data ingestion completed successfully :)")
             return data_ingestion_artifact
         except Exception as e:
+            logger.error(e)
             raise CustomException(e, sys)
 
     def run_pipeline(self) -> None:
@@ -39,6 +40,7 @@ class TrainPipeline(BaseTrainPipeline):
             self.start_data_ingestion()
             logger.info("Train pipeline completed successfully :)")
         except Exception as e:
+            logger.error(e)
             raise CustomException(e, sys)
 
 

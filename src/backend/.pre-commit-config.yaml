@@ -1,13 +1,11 @@
 repos:
-  - repo: local
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
     hooks:
       - id: isort
-        name: isort (Python imports sorter)
-        entry: isort
-        language: python
-        types: [python]
+        name: isort (Python imports sorted)
         args: ["--profile", "black", "--filter-files"]
-  
+
   - repo: https://github.com/psf/black
     rev: 26.1.0
     hooks:

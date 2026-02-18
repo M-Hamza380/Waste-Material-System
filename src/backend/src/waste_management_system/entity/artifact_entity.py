@@ -9,7 +9,7 @@ class DataIngestionArtifact:
 
 @dataclass(frozen=True)
 class DataValidationArtifact:
-    pass
+    validation_status: bool | None
 
 
 @dataclass(frozen=True)

@@ -4,8 +4,8 @@ import sys
 
 import yaml
 
-from .exception import CustomException
-from .logger import logger
+from waste_management_system.utils.exception import CustomException
+from waste_management_system.utils.logger import logger
 
 
 def read_yaml_file(file_path: str) -> dict:
@@ -26,6 +26,7 @@ def read_yaml_file(file_path: str) -> dict:
             logger.info(f"Reading yaml file: {file_path}")
             return yaml.safe_load(yaml_file)
     except Exception as e:
+        logger.error(e)
         raise CustomException(e, sys)
 
 
@@ -52,6 +53,7 @@ def write_yaml_file(file_path: str, data: object, replace: bool = False) -> None
             logger.info(f"Writing yaml file: {file_path}")
             yaml.dump(data, yaml_file)
     except Exception as e:
+        logger.error(e)
         raise CustomException(e, sys)
 
 
@@ -72,6 +74,7 @@ def decode_image(image: str, file_path: str) -> None:
             logger.info(f"Decoding image: {file_path}")
             f.write(img_data)
     except Exception as e:
+        logger.error(e)
         raise CustomException(e, sys)
 
 
@@ -93,4 +96,5 @@ def encode_image(file_path: str) -> str:
             logger.info(f"Encoding image: {file_path}")
             return base64.b64encode(f.read()).decode("utf-8")
     except Exception as e:
+        logger.error(e)
         raise CustomException(e, sys)
